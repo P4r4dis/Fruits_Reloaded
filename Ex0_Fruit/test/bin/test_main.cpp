@@ -84,3 +84,18 @@ Test(FruitBox, test_FruitBox_class_implementation, .init = redirect_all_stdout)
         ""
     );
 }
+
+Test(FruitBox, test_FruitBox_nbFruits, .init = redirect_all_stdout)
+{
+    {
+        FruitBox fb(10);
+
+        cr_assert(fb.getSizeBox() == 10);
+        cr_assert(fb.nbFruits() == 0);
+    }
+
+    cr_assert_stdout_eq_str
+    (
+        ""
+    );
+}

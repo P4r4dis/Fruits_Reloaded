@@ -10,8 +10,10 @@
             ~FruitBox(void);
 
             int     getSizeBox(void) const;
+            int     nbFruits(void) const;
         private:
             int     _sizeBox;
+            int     _nbFruits;
     };
 
 #endif //           !__FRUITBOX_HPP__
