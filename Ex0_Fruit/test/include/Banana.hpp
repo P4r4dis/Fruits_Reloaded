@@ -10,4 +10,4 @@
             ~Banana(void);
 };
 
-#endif //           !__BANANA_HPP__S
+#endif //           !__BANANA_HPP__

@@ -7,6 +7,7 @@
 
 #include "../include/Lemon.hpp"
 #include "../include/Banana.hpp"
+#include "../include/FruitBox.hpp"
 
 
 void redirect_all_stdout(void)
@@ -52,7 +53,7 @@ Test(Lemon, test_Lemon_class_implementation, .init = redirect_all_stdout)
     );
 }
 
-Test(Basnana, test_Banana_class_implementation, .init = redirect_all_stdout)
+Test(Banana, test_Banana_class_implementation, .init = redirect_all_stdout)
 {
     {
         Banana b;
@@ -67,5 +68,19 @@ Test(Basnana, test_Banana_class_implementation, .init = redirect_all_stdout)
     (
         "5\n"
         "banana\n"
+    );
+}
+
+Test(FruitBox, test_FruitBox_class_implementation, .init = redirect_all_stdout)
+{
+    {
+        FruitBox fb(10);
+
+        cr_assert(fb.getSizeBox() == 10);
+    }
+
+    cr_assert_stdout_eq_str
+    (
+        ""
     );
 }
