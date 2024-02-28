@@ -4,8 +4,8 @@ TEST_SRC_PATH = ./source
 TEST_INC_PATH = ./include
 TEST_BIN_PATH = ./bin
 TEST_SRC      = $(TEST_SRC_PATH)/Fruit.cpp \
-				$(TEST_SRC_PATH)/Lemon.cpp
-# $(TEST_SRC_PATH)/Banana.cpp
+				$(TEST_SRC_PATH)/Lemon.cpp \
+				$(TEST_SRC_PATH)/Banana.cpp
 # $(TEST_SRC_PATH)/FruitBox.cpp
 
 NAME          = test_Ex0

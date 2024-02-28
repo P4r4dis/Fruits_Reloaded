@@ -3,7 +3,7 @@
 
     #include "Fruit.hpp"
 
-    class Lemon : public Fruit
+    class Lemon : virtual public Fruit
     {
         public:
             Lemon(void);

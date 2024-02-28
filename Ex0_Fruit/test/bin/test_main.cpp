@@ -6,6 +6,8 @@
 #include <signal.h>
 
 #include "../include/Lemon.hpp"
+#include "../include/Banana.hpp"
+
 
 void redirect_all_stdout(void)
 {
@@ -47,5 +49,23 @@ Test(Lemon, test_Lemon_class_implementation, .init = redirect_all_stdout)
     (
         "3\n"
         "lemon\n"
+    );
+}
+
+Test(Basnana, test_Banana_class_implementation, .init = redirect_all_stdout)
+{
+    {
+        Banana b;
+
+        cr_assert(b.getName() == "banana");
+        cr_assert(b.getVitamins() == 5);
+        std::cout   << b.getVitamins() << std::endl;
+        std::cout   << b.getName() << std::endl;
+    }
+
+    cr_assert_stdout_eq_str
+    (
+        "5\n"
+        "banana\n"
     );
 }
