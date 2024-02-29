@@ -108,6 +108,66 @@ Test(FruitBox, test_FruitBox_head, .init = redirect_all_stdout)
         cr_assert(fb.getSizeBox() == 10);
         cr_assert(fb.nbFruits() == 0);
         cr_assert(fb.head() == nullptr);
+    }
+
+    cr_assert_stdout_eq_str
+    (
+        ""
+    );
+}
+
+Test(FruitBox, test_FruitBox_putFruit, .init = redirect_all_stdout)
+{
+    {
+        FruitBox fb(6);
+        Lemon l1;
+        Lemon l2;
+        Lemon l3;
+        Lemon l4;
+        Lemon l5;
+        Lemon l6;
+        Lemon l7;
+
+
+        cr_assert(fb.getSizeBox() == 6);
+        cr_assert(fb.nbFruits() == 0);
+        if (fb.head() == nullptr)
+            cr_assert(fb.head() == nullptr);
+
+        cr_assert(fb.putFruit(&l1) == true);
+        cr_assert(fb.putFruit(&l1) == false); // false
+        cr_assert(fb.putFruit(&l2) == true);
+        cr_assert(fb.putFruit(&l3) == true);
+        cr_assert(fb.putFruit(&l4) == true);
+        cr_assert(fb.putFruit(&l5) == true);
+        cr_assert(fb.putFruit(&l6) == true);
+        cr_assert(fb.putFruit(&l7) == false); // false
+
+
+        // for (int i = 0; i < 6; i++)
+        // {
+        //     if (fb.nbFruits() < fb.getSizeBox())
+        //         cr_assert(fb.putFruit(&l) == true);
+        //     else
+        //         cr_assert(fb.putFruit(&l) == false);
+        // }
+        // // fb.putFruit(&l);
+        // fb.putFruit(&l);
+        // fb.putFruit(&l);
+        // fb.putFruit(&l);
+        // fb.putFruit(&l);
+        // fb.putFruit(&l);
+        // fb.putFruit(&l);
+        // fb.putFruit(&l);
+        if (fb.head() != nullptr)
+            cr_assert(fb.head() != nullptr);
+        fb.displayList(fb.head());
+        fb.displayList(fb.head());
+        fb.displayList(fb.head());
+
+        Lemon *le = nullptr;
+        cr_assert(fb.putFruit(le) == false);
+
 
     }
 
@@ -116,44 +176,3 @@ Test(FruitBox, test_FruitBox_head, .init = redirect_all_stdout)
         ""
     );
 }
-// Test(FruitBox, test_FruitBox_put, .init = redirect_all_stdout)
-// {
-//     {
-//         FruitBox fb(3);
-//         Lemon l;
-
-//         cr_assert(fb.getSizeBox() == 3);
-//         cr_assert(fb.nbFruits() == 0);
-//         if (fb.head() == nullptr)
-//             cr_assert(fb.head() == nullptr);
-
-//         for (int i = 0; i < 6; i++)
-//         {
-//             if (fb.nbFruits() < fb.getSizeBox())
-//                 cr_assert(fb.putFruit(&l) == true);
-//             else
-//                 cr_assert(fb.putFruit(&l) == false);
-//         }
-//         // fb.putFruit(&l);
-//         // fb.putFruit(&l);
-//         // fb.putFruit(&l);
-//         // fb.putFruit(&l);
-//         // fb.putFruit(&l);
-//         // fb.putFruit(&l);
-//         // fb.putFruit(&l);
-//         // fb.putFruit(&l);
-//         if (fb.head() != nullptr)
-//             cr_assert(fb.head() != nullptr);
-//         fb.displayList(fb.head());
-
-//         Lemon *le = nullptr;
-//         cr_assert(fb.putFruit(le) == false);
-
-
-//     }
-
-//     cr_assert_stdout_eq_str
-//     (
-//         ""
-//     );
-// }

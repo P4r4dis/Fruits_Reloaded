@@ -18,9 +18,10 @@
             int         getSizeBox(void) const;
             int         nbFruits(void) const;
             FruitNode   *head(void) const;
-            void        displayList(FruitNode *node);
-
+            
             bool        putFruit(Fruit *f);
+
+            void        displayList(FruitNode *node);
         private:
             int         _sizeBox;
             int         _nbFruits;
