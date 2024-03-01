@@ -229,3 +229,45 @@ Test(FruitBox, test_FruitBox_pickFruit, .init = redirect_all_stdout)
     //     ""
     // );
 }
+
+
+Test(FruitBox, test_Ex0_main, .init = redirect_all_stdout)
+{
+    {
+        FruitBox fb(4);
+        Banana b1;
+        Banana b2;
+        Lemon l1;
+        Lemon l2;
+        Lemon l3;
+
+        cr_assert(fb.getSizeBox() == 4);
+        cr_assert(fb.nbFruits() == 0);
+        if (fb.head() == nullptr)
+            cr_assert(fb.head() == nullptr);
+
+        cr_assert(fb.putFruit(&l1) == true);
+        cr_assert(fb.putFruit(&l1) == false); // false
+        cr_assert(fb.putFruit(&l2) == true);
+        cr_assert(fb.putFruit(&b1) == true);
+        cr_assert(fb.putFruit(&b2) == true);
+        cr_assert(fb.putFruit(&l3) == false);
+
+        if (fb.head() != nullptr)
+            cr_assert(fb.head() != nullptr);
+        fb.displayList(fb.head());
+
+        Lemon *le = nullptr;
+        cr_assert(fb.putFruit(le) == false);
+
+        cr_assert(fb.pickFruit() == &l1);
+                fb.displayList(fb.head());
+                        cr_assert(fb.nbFruits() == 3);
+
+        FruitBox fb2(3);
+
+        cr_assert(fb2.head() == nullptr);
+        cr_assert(fb2.nbFruits() == 0);
+        cr_assert(fb2.pickFruit() == nullptr);
+    }
+}
