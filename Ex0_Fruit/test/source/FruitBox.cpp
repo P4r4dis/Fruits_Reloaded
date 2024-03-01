@@ -3,13 +3,28 @@
 FruitBox::FruitBox(int size)    :   _sizeBox(size),
                                     _nbFruits(0),
                                     _headFruitNode(nullptr)
-{
+{}
 
-}
-
+// FruitBox::FruitBox(const FruitBox& rhs) :   _sizeBox(rhs._sizeBox),
+//                                             _nbFruits(rhs._nbFruits),
+//                                             _headFruitNode(rhs._headFruitNode)
+// {}
 
 FruitBox::~FruitBox(void)
-{}
+{
+    delete _headFruitNode;
+}
+
+// FruitBox        &FruitBox::operator=(const FruitBox& rhs)
+// {
+//     if (this != &rhs)
+//     {
+//         _sizeBox = rhs._sizeBox;
+//         _nbFruits = rhs._nbFruits;
+//         _headFruitNode = rhs._headFruitNode;
+//     }
+//     return *this;
+// }
 
 int             FruitBox::getSizeBox(void) const
 {
@@ -48,7 +63,10 @@ bool            FruitBox::putFruit(Fruit *f)
                 }
             }
            /* 1. create and allocate node And create a lastFruitNode which is equal to _head*/
-            FruitNode *newFruitNode = new FruitNode();
+            FruitNode *newFruitNode = new FruitNode();  // I dont understand if i have to use  
+                                                                // new FruitNode[_sizeBox];
+                                                                // or new FruitNode();
+                                                                // or new FruitNode[sizeof(FruitNode)];
             FruitNode *lastFruitNode = _headFruitNode; /* used in step 5*/
     
             /* 2. assign data to the new node */
@@ -81,6 +99,21 @@ bool            FruitBox::putFruit(Fruit *f)
     }
 }
 
+Fruit           *FruitBox::pickFruit(void)
+{
+    if (_nbFruits <= 0 || _headFruitNode == nullptr)
+        return nullptr;
+    FruitNode *currentFruitNode = _headFruitNode;
+
+    // Remove the first node from the list
+    Fruit *fruit = currentFruitNode->fruit;
+    _headFruitNode = currentFruitNode->next;
+    currentFruitNode = nullptr;
+    delete currentFruitNode;
+    _nbFruits--;
+    return fruit;
+}
+
 void FruitBox::displayList(FruitNode *node)
 {
    //traverse the list to display each node
@@ -91,73 +124,5 @@ void FruitBox::displayList(FruitNode *node)
    }
 
     if(node== NULL)
-        std::cerr<<"nullptr" << std::endl;; 
+        std::cerr<<"nullptr" << std::endl;
 }
-
-
-
-// bool            FruitBox::putFruit(Fruit *f)
-// {
-//     if (f == nullptr)
-//         return false;
-//     else
-//     {
-//         if (_nbFruits < _sizeBox)
-//         {
-//             /* 1. create and allocate node */
-//                 // std::cout << "TEST" << std::endl;
-
-//             FruitNode* newNode = new FruitNode;
-//             FruitNode *last = _headFruitNode; /* used in step 5*/
-    
-//             /* 2. assign data to the node */
-//                 // std::cout << "TEST" << std::endl;
-
-//             newNode->fruit = f;
-    
-//             /* 3. set next pointer of new node to null as its the last node*/
-//                 // std::cout << "TEST" << std::endl;
-
-//             newNode->next = nullptr;
-    
-//             /* 4. if list is empty, new node becomes first node */
-//                 // std::cout << "TEST 4" << std::endl;
-
-//             if (_headFruitNode == nullptr)
-//             {
-//                 _headFruitNode = newNode;
-
-//                 // increment the nb fruit after add nodee
-//                 _nbFruits++;
-//                 return true;
-//             }
-    
-//             /* 5. Else traverse till the last node */
-//             while (last->next != nullptr)
-//                 last = last->next;
-    
-//             /* 6. Change the next of last node */
-//             last->next = newNode;
-
-//             // increment the nb fruit after add nodee
-//             _nbFruits++;
-
-//             return true;
-//         }
-//         else
-//             return false;
-//     }
-// }
-
-// void FruitBox::displayList(FruitNode *node)
-// {
-//    //traverse the list to display each node
-//    while (node != NULL)
-//    {
-//       std::cerr<<node->fruit->getName()<<"-->";
-//       node = node->next;
-//    }
-
-//     if(node== NULL)
-//         std::cerr<<"nullptr" << std::endl;; 
-// } 
