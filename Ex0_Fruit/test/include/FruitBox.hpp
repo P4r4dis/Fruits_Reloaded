@@ -1,13 +1,9 @@
 #ifndef                 __FRUITBOX_HPP__
     #define             __FRUITBOX_HPP__
 
-    #include "Fruit.hpp"
+    #include "FruitNode.hpp"
 
-    struct              FruitNode
-    {
-        FruitNode       *next;
-        Fruit           *fruit;    // data
-    };
+
     
     class               FruitBox
     {

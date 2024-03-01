@@ -177,7 +177,7 @@ Test(FruitBox, test_FruitBox_putFruit, .init = redirect_all_stdout)
     );
 }
 
-Test(FruitBox, test_FruitBox_pickFruit)//, .init = redirect_all_stdout)
+Test(FruitBox, test_FruitBox_pickFruit, .init = redirect_all_stdout)
 {
     {
         FruitBox fb(6);
