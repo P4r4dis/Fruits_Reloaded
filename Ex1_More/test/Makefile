@@ -7,7 +7,8 @@ TEST_SRC      = $(TEST_SRC_PATH)/Fruit.cpp \
 				$(TEST_SRC_PATH)/Lemon.cpp \
 				$(TEST_SRC_PATH)/Banana.cpp \
 				$(TEST_SRC_PATH)/FruitBox.cpp \
-				$(TEST_SRC_PATH)/Lime.cpp
+				$(TEST_SRC_PATH)/Lime.cpp \
+				$(TEST_SRC_PATH)/LittleHand.cpp
 
 NAME          = test_Ex1
 #############################################

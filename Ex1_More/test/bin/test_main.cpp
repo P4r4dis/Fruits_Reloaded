@@ -9,6 +9,7 @@
 #include "../include/Banana.hpp"
 #include "../include/FruitBox.hpp"
 #include "../include/Lime.hpp"
+#include "../include/LittleHand.hpp"
 
 
 void redirect_all_stdout(void)
@@ -290,4 +291,18 @@ Test(Lime, test_Lime_class_implementation, .init = redirect_all_stdout)
         "2\n"
         "lime\n"
     );
+}
+
+Test(LittleHand, test_LittleHand_class_implementation)//, .init = redirect_all_stdout)
+{
+    {
+        LittleHand little;
+        little.~LittleHand();
+    }
+
+    // cr_assert_stdout_eq_str
+    // (
+    //     "2\n"
+    //     "lime\n"
+    // );
 }
