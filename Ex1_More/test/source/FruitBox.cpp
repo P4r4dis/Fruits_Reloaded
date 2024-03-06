@@ -127,3 +127,8 @@ void FruitBox::displayList(FruitNode *node)
     if(node== NULL)
         std::cerr<<"nullptr]" << std::endl;
 }
+
+// void FruitBox::setHead(FruitNode *fruitNode)
+// {
+//     _headFruitNode = fruitNode;
+// }

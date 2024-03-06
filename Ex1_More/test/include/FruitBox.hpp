@@ -22,6 +22,8 @@
             Fruit       *pickFruit(void);
 
             void        displayList(FruitNode *node);
+
+            // void        setHead(FruitNode *fruitNode);
         private:
             int         _sizeBox;
             int         _nbFruits;

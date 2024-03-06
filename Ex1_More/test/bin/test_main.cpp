@@ -304,5 +304,47 @@ Test(LittleHand, test_LittleHand_class_implementation)//, .init = redirect_all_s
     // (
     //     "2\n"
     //     "lime\n"
+ 
+    // );
+}
+
+Test(LittleHand, test_LittleHand_sortFruitBox, .init = redirect_all_stdout)
+{
+    {
+        LittleHand little;
+        FruitBox unsorted(6);
+        FruitBox lemonBox(4);
+        FruitBox bananaBox(4);
+        FruitBox limeBox(4);
+
+        Lemon lemon;
+        Lemon lemon2;
+
+        Banana banana;
+        Lime lime;
+        Fruit &fruit = lemon2;
+        Lime2 test;
+        Fruit fruit2 = test;
+        cr_assert(unsorted.putFruit(&lemon) == true);
+        cr_assert(unsorted.putFruit(&banana) == true);
+        cr_assert(unsorted.putFruit(&lime) == true);
+        cr_assert(unsorted.putFruit(&fruit) == true);
+        cr_assert(unsorted.putFruit(&fruit2) == true);
+        little.sortFruitbox(unsorted, lemonBox, bananaBox, limeBox);
+        unsorted.displayList(unsorted.head());
+        cr_assert(unsorted.nbFruits() == 1);
+        lemonBox.displayList(lemonBox.head());
+        cr_assert(lemonBox.nbFruits() == 2);
+        bananaBox.displayList(bananaBox.head());
+        cr_assert(bananaBox.nbFruits() == 1);
+        limeBox.displayList(limeBox.head());
+        cr_assert(limeBox.nbFruits() == 1);
+    }
+
+    // cr_assert_stdout_eq_str
+    // (
+    //     "2\n"
+    //     "lime\n"
+ 
     // );
 }
