@@ -2,7 +2,7 @@
     #define             __FRUITBOX_HPP__
 
     #include "FruitNode.hpp"
-
+    #include "Coconut.hpp"
 
     
     class               FruitBox
@@ -18,10 +18,13 @@
             int         nbFruits(void) const;
             FruitNode   *head(void) const;
             
-            bool        putFruit(Fruit *f);
+            bool        putFruit(Fruit* const f);
             Fruit       *pickFruit(void);
 
             void        displayList(FruitNode *node);
+
+            void        setHead(FruitNode *fruitNode);
+            bool        addCoconut(const Coconut* c);
         private:
             int         _sizeBox;
             int         _nbFruits;

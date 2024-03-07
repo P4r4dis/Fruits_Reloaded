@@ -44,7 +44,7 @@ FruitNode       *FruitBox::head(void) const
         return _headFruitNode;
 }
 
-bool            FruitBox::putFruit(Fruit *f)
+bool            FruitBox::putFruit(Fruit * const f)
 {
     if (f == nullptr)
         return false;
@@ -114,7 +114,7 @@ Fruit           *FruitBox::pickFruit(void)
     return fruit;
 }
 
-void FruitBox::displayList(FruitNode *node)
+void            FruitBox::displayList(FruitNode *node)
 {
    //traverse the list to display each node
    std::cerr << "FruitBox[";
@@ -128,7 +128,7 @@ void FruitBox::displayList(FruitNode *node)
         std::cerr<<"nullptr]" << std::endl;
 }
 
-// void FruitBox::setHead(FruitNode *fruitNode)
-// {
-//     _headFruitNode = fruitNode;
-// }
+bool            FruitBox::addCoconut(const Coconut* c)
+{
+    return putFruit(const_cast<Coconut*>(c));
+};

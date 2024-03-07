@@ -368,3 +368,36 @@ Test(Coconut, test_Coconut_class_implementation, .init = redirect_all_stdout)
         "coconut\n"
     );
 }
+
+Test(LittleHand, test_organizeCoconut)//, .init = redirect_all_stdout)
+{
+    {
+    const int numCoconuts = 25; // Adjust the number of coconuts as needed
+
+    // Dynamically create an array of Coconut pointers
+    Coconut** coconuts = new Coconut*[numCoconuts + 1]; // +1 for the nullptr
+
+    for (int i = 0; i < numCoconuts; ++i) {
+        coconuts[i] = new Coconut();
+    }
+
+    // Terminate the array with nullptr
+    coconuts[numCoconuts] = nullptr;
+
+    // Coconut* coconuts[25] = new Coconut*[25];
+    FruitBox* const* fruitBoxes = LittleHand::organizeCoconut(coconuts);
+    for (int i = 0; fruitBoxes[i]; i++)
+    {
+            cr_assert(i < 5);
+    }
+    // Add further processing or printing logic as needed
+    // Don't forget to free the allocated memory to avoid memory leaks
+    for (int i = 0; fruitBoxes[i] != nullptr; ++i) {
+        fruitBoxes[i]->displayList(fruitBoxes[i]->head());
+        cr_assert(fruitBoxes[i]->getSizeBox() == 6);
+        cr_assert(fruitBoxes[i]->nbFruits() == 6 || 1);
+        delete fruitBoxes[i];
+    }
+    delete[] fruitBoxes;
+    }
+}

@@ -2,6 +2,7 @@
     #define         __LITTLEHAND_HPP__
 
     #include "FruitBox.hpp"
+    #include "Coconut.hpp"
 
     class LittleHand
     {
@@ -9,8 +10,9 @@
             LittleHand(void);
             ~LittleHand(void);
 
-            static void         sortFruitbox(FruitBox& unsorted, FruitBox& lemons,
-                                            FruitBox& bananas, FruitBox& limes);
+            static void                 sortFruitbox(FruitBox& unsorted, FruitBox& lemons,
+                                                    FruitBox& bananas, FruitBox& limes);
+            static FruitBox * const *   organizeCoconut(Coconut const * const * coconuts);
     };
 
 #endif //           !__LITTLEHAND_HPP__S
