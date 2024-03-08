@@ -33,15 +33,15 @@ EX2_SRC_TEST			=	$(EX2_TST_PATH)/$(NAME_EX2)_test.cpp
 TEST_NAME_EX2 			= 	test_$(NAME_EX2)
 
 # #################################################
-# EX3_PATH 				= 	./Ex3_Priest
-# EX3_SRC_PATH			=	./Ex3_Priest/source
-# EX3_TST_PATH			=	./Ex3_Priest/test
-# EX3_INC_PATH			=	./Ex3_Priest/include
-# NAME_EX3				=	Ex3
-# # EX0_SRC					=	$(EX0_SRC_PATH)/.cpp
+EX3_PATH 				= 	./Ex3_Mix
+EX3_SRC_PATH			=	./Ex3_Mix/source
+EX3_TST_PATH			=	./Ex3_Mix/test
+EX3_INC_PATH			=	./Ex3_Mix/include
+NAME_EX3				=	Ex3
+# EX0_SRC					=	$(EX0_SRC_PATH)/.cpp
 
-# EX3_SRC_TEST			=	$(EX3_TST_PATH)/$(NAME_EX3)_test.cpp
-# TEST_NAME_EX3 			= 	test_$(NAME_EX3)
+EX3_SRC_TEST			=	$(EX3_TST_PATH)/$(NAME_EX3)_test.cpp
+TEST_NAME_EX3 			= 	test_$(NAME_EX3)
 
 # #################################################
 # EX4_PATH 				= 	./Ex4_Paladin
@@ -87,14 +87,14 @@ clean					:
 							@$(MAKE) $(CLEAN) -C $(EX0_TST_PATH)
 							@$(MAKE) $(CLEAN) -C $(EX1_TST_PATH)
 							@$(MAKE) $(CLEAN) -C $(EX2_TST_PATH)
-# @$(MAKE) $(CLEAN) -C $(EX3_TST_PATH)
+							@$(MAKE) $(CLEAN) -C $(EX3_TST_PATH)
 # @$(MAKE) $(CLEAN) -C $(EX4_TST_PATH)
 
 fclean					:	clean
 							$(RM) $(NAME) $(TEST_NAME_EX0)
 							$(RM) $(NAME) $(TEST_NAME_EX1)
 							$(RM) $(NAME) $(TEST_NAME_EX2)
-# $(RM) $(NAME) $(TEST_NAME_EX3)
+							$(RM) $(NAME) $(TEST_NAME_EX3)
 # $(RM) $(NAME) $(TEST_NAME_EX4)
 							@$(MAKE) $(FCLEAN) -C $(EX0_TST_PATH)
 							@$(MAKE) $(FCLEAN) -C $(EX0_PATH)
@@ -102,8 +102,8 @@ fclean					:	clean
 							@$(MAKE) $(FCLEAN) -C $(EX1_PATH)
 							@$(MAKE) $(FCLEAN) -C $(EX2_TST_PATH)
 							@$(MAKE) $(FCLEAN) -C $(EX2_PATH)
-# @$(MAKE) $(FCLEAN) -C $(EX3_TST_PATH)
-# @$(MAKE) $(FCLEAN) -C $(EX3_PATH)
+							@$(MAKE) $(FCLEAN) -C $(EX3_TST_PATH)
+							@$(MAKE) $(FCLEAN) -C $(EX3_PATH)
 # @$(MAKE) $(FCLEAN) -C $(EX4_TST_PATH)
 # @$(MAKE) $(FCLEAN) -C $(EX4_PATH)
 

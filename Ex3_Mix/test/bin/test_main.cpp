@@ -11,6 +11,7 @@
 #include "../include/Lime.hpp"
 #include "../include/LittleHand.hpp"
 #include "../include/Coconut.hpp"
+#include "../include/Mixer.hpp"
 
 
 void redirect_all_stdout(void)
@@ -369,7 +370,7 @@ Test(Coconut, test_Coconut_class_implementation, .init = redirect_all_stdout)
     );
 }
 
-Test(LittleHand, test_organizeCoconut)//, .init = redirect_all_stdout)
+Test(LittleHand, test_organizeCoconut, .init = redirect_all_stdout)
 {
     {
         const int numCoconuts = 25; // Adjust the number of coconuts as needed
@@ -399,5 +400,38 @@ Test(LittleHand, test_organizeCoconut)//, .init = redirect_all_stdout)
             delete fruitBoxes[i];
         }
         delete[] fruitBoxes;
+    }
+}
+
+Test(Mixer, test_organizeCoconut)//, .init = redirect_all_stdout)
+{
+    {
+        Mixer mixer;
+
+        Lemon l1;
+        Lemon l2;
+        Lemon l3;
+        Lemon l4;
+        Lemon l5;
+        Lemon l6;
+
+        FruitBox lemonFruitBox(6);
+
+        lemonFruitBox.putFruit(&l1);
+        lemonFruitBox.putFruit(&l2);
+        lemonFruitBox.putFruit(&l3);
+        lemonFruitBox.putFruit(&l4);
+        lemonFruitBox.putFruit(&l5);
+        lemonFruitBox.putFruit(&l6);
+
+        cr_assert(mixer.getConnect() == false);
+        cr_assert(lemonFruitBox.nbFruits() == 6);
+        LittleHand little;
+        little.plugMixer(mixer);
+        cr_assert(mixer.mix(lemonFruitBox) == 18);
+        little.unplugMixer(mixer);
+        cr_assert(mixer.mix(lemonFruitBox) == 0); 
+        cr_assert(lemonFruitBox.nbFruits() == 0);
+
     }
 }
